@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 class User(models.Model):
     firts_name = models.CharField('Nombre', max_length=15)
@@ -17,6 +17,9 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.title
+    def published(self):
+        self.pub_date = timezone.now()
+        self.save()
 
 class Comment(models.Model):
     pub_date = models.DateTimeField('Fecha de publicación', blank=False)
