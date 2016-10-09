@@ -1,36 +1,23 @@
 from django.db import models
 from django.utils import timezone
+
 # Create your models here.
-class User(models.Model):
-    firts_name = models.CharField('Nombre', max_length=15)
-    last_name = models.CharField('Apellido', max_length=20)
-    user_name = models.CharField('Nombre de usuario', max_length=12, blank=False)
-    password = models.IntegerField('Contraseña', blank=False)
-    def __str__(self):
-        return self.firts_name + " " + self.last_name
 
 class Post(models.Model):
-    title = models.CharField('Titulo',max_length=45, blank=False)
-    pub_date = models.DateTimeField('Fecha de publicación', blank=False)
+    post_title = models.CharField('Titulo del Post',max_length=100, blank=False)
+    publish_date = models.DateTimeField('Fecha de publicación', blank=False)
     edit_date = models.DateTimeField('Fecha de edición', blank=False)
-    content = models.TextField('Contenido', blank=False)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post_content = models.TextField('Contenido', blank=False)
     def __str__(self):
-        return self.title
+        return self.post_title
     def published(self):
-        self.pub_date = timezone.now()
+        self.publish_date = timezone.now()
         self.save()
 
 class Comment(models.Model):
-    pub_date = models.DateTimeField('Fecha de publicación', blank=False)
-    content = models.TextField('Contenido', blank=False)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    entry = models.ForeignKey(Post, on_delete=models.CASCADE)
+    publish_date = models.DateTimeField('Fecha de publicación', blank=False)
+    comment_content = models.TextField('Contenido del comentario', blank=False)
+    comment_author = models.CharField('Autor del comentario', blank=False)
+    post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
     def __str__(self):
         return self.author + '[' + self.pub_date + ']'
-
-class Tag(models.Model):
-    name = models.CharField('Nombre', max_length=12, blank=False)
-    entry = models.ForeignKey(Post, on_delete=models.CASCADE)
-    def __str__(self):
-        return self.name
