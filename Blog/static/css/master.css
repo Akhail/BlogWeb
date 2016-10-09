@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+nav ul {
+  list-style: none;
+  padding: 0 10%; }
+  nav ul li {
+    float: left; }
+  nav ul.menu {
+    background: #0b0b0b;
+    color: white; }
+    nav ul.menu li {
+      height: 100%;
+      width: 15%;
+      transition: all 400ms ease; }
+      nav ul.menu li.title-web {
+        width: 50%; }
+        nav ul.menu li.title-web a {
+          text-align: left; }
+      nav ul.menu li.find-web {
+        width: 5%; }
+      nav ul.menu li.active-page {
+        background: #5ba7e6; }
+      nav ul.menu li a {
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        display: block;
+        padding: 20px 0; }
+    nav ul.menu li:not(.title-web):not(.find-web):hover {
+      background-color: #5ba7e6; }
+    nav ul.menu li:not(.title-web):not(.find-web):active {
+      background-color: #1d75be; }
+  nav ul.login {
+    background: white;
+    color: black;
+    padding: 5px 0; }
+    nav ul.login li a {
+      text-decoration: none;
+      color: black; }
+  nav ul::after {
+    content: "";
+    clear: both;
+    display: block; }
+
+/*# sourceMappingURL=master.css.map */

@@ -1,0 +1,52 @@
+$menu-height: 20px
+$menu-item-color: $primary-color
+$margin: 0 10%
+
+nav
+    ul
+        list-style: none
+        padding: $margin
+        li
+            float: left
+        &.menu
+            background: $dark-color
+            color: white
+            li
+                height: 100%
+                width: 15%
+                transition: all 400ms ease
+                &.title-web
+                    width: 50%
+                    a
+                        text-align: left
+
+                &.find-web
+                    width: 5%
+
+                &.active-page
+                    background: $menu-item-color
+
+                a
+                    text-decoration: none
+                    color: white
+
+                    text-align: center
+                    display: block
+                    padding: $menu-height 0
+
+            li:not(.title-web):not(.find-web):hover
+                background-color: $menu-item-color
+            li:not(.title-web):not(.find-web):active
+                background-color: darken($menu-item-color, 20%)
+
+        &.login
+            background: white
+            color: black
+            padding: 5px 0ve
+            li a
+                text-decoration: none
+                color: black
+        &::after
+            content: ''
+            clear: both
+            display: block
