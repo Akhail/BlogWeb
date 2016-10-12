@@ -1,48 +1,131 @@
-* {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  color: #0b0b0b;
+  text-decoration: none; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
   box-sizing: border-box; }
 
-nav ul {
-  list-style: none;
-  padding: 0 10%; }
-  nav ul li {
-    float: left; }
-  nav ul.menu {
-    background: #0b0b0b;
-    color: white; }
-    nav ul.menu li {
-      height: 100%;
-      width: 15%;
-      transition: all 400ms ease; }
-      nav ul.menu li.title-web {
-        width: 50%; }
-        nav ul.menu li.title-web a {
-          text-align: left; }
-      nav ul.menu li.find-web {
-        width: 5%; }
-      nav ul.menu li.active-page {
-        background: #5ba7e6; }
-      nav ul.menu li a {
-        text-decoration: none;
-        color: white;
-        text-align: center;
-        display: block;
-        padding: 20px 0; }
-    nav ul.menu li:not(.title-web):not(.find-web):hover {
-      background-color: #5ba7e6; }
-    nav ul.menu li:not(.title-web):not(.find-web):active {
-      background-color: #1d75be; }
-  nav ul.login {
-    background: white;
-    color: black;
-    padding: 5px 0; }
-    nav ul.login li a {
-      text-decoration: none;
-      color: black; }
-  nav ul::after {
-    content: "";
-    clear: both;
-    display: block; }
+.flex {
+  display: flex; }
+
+body {
+  background: #e7e7e7; }
+
+header {
+  background: #252525; }
+
+nav.menu, div.barra {
+  display: flex;
+  padding-left: 10%;
+  padding-right: 10%; }
+
+header > div.barra {
+  justify-content: space-between;
+  background: white; }
+  header > div.barra ul {
+    display: flex;
+    color: #0b0b0b; }
+    header > div.barra ul.login {
+      flex-grow: 1;
+      justify-content: space-between; }
+      header > div.barra ul.login a:hover {
+        color: #5ba7e6; }
+    header > div.barra ul.redes {
+      flex-grow: 9;
+      justify-content: flex-end; }
+
+img {
+  width: 228.10241px;
+  height: 65px; }
+
+header > nav.menu {
+  justify-content: center;
+  height: 65px;
+  align-items: stretch; }
+  header > nav.menu a {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex: 1;
+    color: white;
+    transition: all 400ms ease; }
+    header > nav.menu a:hover {
+      background: #5ba7e6; }
+  header > nav.menu div.title-web {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex: 4; }
+
+/* _section.sass */
+section {
+  margin-top: 30px;
+  display: flex;
+  padding-left: 10%;
+  padding-right: 10%; }
+
+article.recent-publish {
+  display: flex;
+  justify-content: space-around;
+  flex: 70%;
+  flex-flow: row wrap; }
+
+div.recent-blog {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column;
+  width: 45%; }
+  div.recent-blog img {
+    height: 160px;
+    width: 100%; }
+  div.recent-blog h4.blog-title {
+    font-size: 1.7em; }
+  div.recent-blog div.content {
+    color: #343434; }
+  div.recent-blog img, div.recent-blog h4, div.recent-blog h5 {
+    margin-bottom: 5px; }
+  div.recent-blog div.content {
+    margin-bottom: 60px; }
 
 /*# sourceMappingURL=master.css.map */

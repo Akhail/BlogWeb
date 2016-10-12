@@ -1,52 +1,47 @@
-$menu-height: 20px
+$menu-height: 65px
 $menu-item-color: $primary-color
 $margin: 0 10%
 
-nav
+// -------- 1. Normal style --------
+header
+    background: lighten($dark-color, 10%)
+nav.menu, div.barra
+    display: flex
+    padding-left: 10%
+    padding-right: 10%
+header > div.barra
+    justify-content: space-between
+    background: white
     ul
-        list-style: none
-        padding: $margin
-        li
-            float: left
-        &.menu
-            background: $dark-color
-            color: white
-            li
-                height: 100%
-                width: 15%
-                transition: all 400ms ease
-                &.title-web
-                    width: 50%
-                    a
-                        text-align: left
-
-                &.find-web
-                    width: 5%
-
-                &.active-page
-                    background: $menu-item-color
-
-                a
-                    text-decoration: none
-                    color: white
-
-                    text-align: center
-                    display: block
-                    padding: $menu-height 0
-
-            li:not(.title-web):not(.find-web):hover
-                background-color: $menu-item-color
-            li:not(.title-web):not(.find-web):active
-                background-color: darken($menu-item-color, 20%)
-
+        display: flex
+        color: $dark-color
         &.login
-            background: white
-            color: black
-            padding: 5px 0ve
-            li a
-                text-decoration: none
-                color: black
-        &::after
-            content: ''
-            clear: both
-            display: block
+            flex-grow: 1
+            justify-content: space-between
+            a:hover
+                color: $primary-color
+        &.redes
+            flex-grow: 9
+            justify-content: flex-end
+
+img
+    width: $menu-height * 557 / 166 + 10
+    height: $menu-height
+header > nav.menu
+    justify-content: center
+    height: $menu-height
+    align-items: stretch
+    a
+        align-items: center
+        justify-content: center
+        display: flex
+        flex: 1
+        color: white
+        transition: all 400ms ease
+        &:hover
+            background: $primary-color
+    div.title-web
+        display: flex
+        align-items: flex-start
+        justify-content: flex-start
+        flex: 4
