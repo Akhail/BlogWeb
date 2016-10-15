@@ -45,23 +45,27 @@ table {
 * {
   box-sizing: border-box; }
 
-.flex {
-  display: flex; }
-
-body {
-  background: #e7e7e7; }
-
-header {
-  background: #252525; }
-
-nav.menu, div.barra {
+/* Header Desktop Configuration */
+/* -------- 1. Normal style -------- */
+nav.menu, nav.hide-menu, div.barra {
   display: flex;
   padding-left: 10%;
-  padding-right: 10%; }
+  padding-right: 10%;
+  transition: all 600ms ease; }
+
+nav.hide-menu {
+  position: fixed;
+  top: -70px;
+  width: 100%;
+  background: rgba(18, 18, 18, 0.93) !important; }
+nav.show {
+  top: 0; }
 
 header > div.barra {
+  padding-top: 5px;
+  padding-bottom: 5px;
   justify-content: space-between;
-  background: white; }
+  background: #f9f9f9; }
   header > div.barra ul {
     display: flex;
     color: #0b0b0b; }
@@ -69,7 +73,7 @@ header > div.barra {
       flex-grow: 1;
       justify-content: space-between; }
       header > div.barra ul.login a:hover {
-        color: #5ba7e6; }
+        color: #1e73be; }
     header > div.barra ul.redes {
       flex-grow: 9;
       justify-content: flex-end; }
@@ -78,54 +82,120 @@ img {
   width: 228.10241px;
   height: 65px; }
 
-header > nav.menu {
+header > nav.menu, header > nav.hide-menu {
   justify-content: center;
   height: 65px;
+  background: #0b0b0b;
   align-items: stretch; }
-  header > nav.menu a {
+  header > nav.menu a, header > nav.hide-menu a {
     align-items: center;
     justify-content: center;
     display: flex;
     flex: 1;
     color: white;
     transition: all 400ms ease; }
-    header > nav.menu a:hover {
-      background: #5ba7e6; }
-  header > nav.menu div.title-web {
+    header > nav.menu a:hover, header > nav.hide-menu a:hover {
+      background: #1e73be; }
+  header > nav.menu div.title-web, header > nav.hide-menu div.title-web {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     flex: 4; }
 
-/* _section.sass */
+/* Section Desktop Configuration */
 section {
   margin-top: 30px;
   display: flex;
   padding-left: 10%;
   padding-right: 10%; }
+  section article {
+    width: 70%; }
+    section article.detail-post {
+      border-left: 5px solid #1e73be;
+      padding: 10px 0 40px 25px; }
+      section article.detail-post > h3.title-post {
+        font-size: 2em;
+        padding-bottom: 5px;
+        text-align: left;
+        color: #175892;
+        margin-bottom: 30px;
+        width: 95%;
+        border-bottom: 3px solid #2d5b91; }
+      section article.detail-post > div.content-detail-post {
+        width: 95%; }
+        section article.detail-post > div.content-detail-post h4.subtitle-post {
+          font-size: 1.4em;
+          margin-bottom: 20px;
+          font-weight: bold; }
+        section article.detail-post > div.content-detail-post div.element-content p::first-letter {
+          margin-left: 25px; }
+        section article.detail-post > div.content-detail-post div.element-content img {
+          margin: 20px auto;
+          width: 100%;
+          height: auto; }
+    section article.recent-publish {
+      display: flex;
+      justify-content: space-around;
+      flex: 70%;
+      flex-flow: row wrap; }
+      section article.recent-publish > div.recent-post {
+        align-self: flex-start;
+        width: 45%; }
+        section article.recent-publish > div.recent-post:hover a {
+          color: #1e73be; }
+        section article.recent-publish > div.recent-post img {
+          height: 160px;
+          width: 100%; }
+        section article.recent-publish > div.recent-post h4.post-title {
+          font-size: 1.7em; }
+        section article.recent-publish > div.recent-post div.content {
+          color: #343434; }
+        section article.recent-publish > div.recent-post img, section article.recent-publish > div.recent-post h4, section article.recent-publish > div.recent-post h5 {
+          margin-bottom: 5px; }
+        section article.recent-publish > div.recent-post div.content {
+          margin-bottom: 60px; }
 
-article.recent-publish {
+/* Aside Desktop Configuration */
+aside {
+  max-width: 25%; }
+  aside div.aside-title {
+    border-bottom: 2px solid #1e73be;
+    padding: 5px 0; }
+    aside div.aside-title > h4 {
+      background: #1e73be;
+      display: inline;
+      color: white;
+      padding: 5px 15px; }
+  aside div.comment {
+    margin-top: 5px; }
+    aside div.comment .comment-title {
+      font-weight: bold;
+      font-size: 1.2em; }
+
+/* Header Desktop Configuration */
+footer {
+  margin-top: 160px;
+  width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   justify-content: space-around;
-  flex: 70%;
-  flex-flow: row wrap; }
-
-div.recent-blog {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-flow: column;
-  width: 45%; }
-  div.recent-blog img {
-    height: 160px;
-    width: 100%; }
-  div.recent-blog h4.blog-title {
-    font-size: 1.7em; }
-  div.recent-blog div.content {
-    color: #343434; }
-  div.recent-blog img, div.recent-blog h4, div.recent-blog h5 {
-    margin-bottom: 5px; }
-  div.recent-blog div.content {
-    margin-bottom: 60px; }
+  background: #0b0b0b;
+  height: 80px; }
+  footer img {
+    height: auto;
+    width: 160px; }
+  footer div {
+    color: white;
+    font-size: 1.2em; }
+  footer a {
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 2px;
+    transition: all 400ms ease; }
+    footer a:hover {
+      background: rgba(30, 115, 190, 0.4); }
 
 /*# sourceMappingURL=master.css.map */

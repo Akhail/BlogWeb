@@ -1,0 +1,55 @@
+/* Section Desktop Configuration */
+
+
+section
+    margin-top: 30px
+    display: flex
+    padding-left: 10%
+    padding-right: 10%
+    article
+        width: 70%
+        &.detail-post
+            border-left: 5px solid $primary-color
+            padding: 10px 0 40px 25px
+            > h3.title-post
+                font-size: 2em
+                padding-bottom: 5px
+                text-align: left
+                color: darken($primary-color, 10%)
+                margin-bottom: 30px
+                width: 95%
+                border-bottom: 3px solid $secondary-color
+            > div.content-detail-post
+                width: 95%
+                h4.subtitle-post
+                    font-size: 1.4em
+                    margin-bottom: 20px
+                    font-weight: bold
+                div.element-content
+                    p::first-letter
+                        margin-left: 25px
+                    img
+                        margin: 20px auto
+                        width: 100%
+                        height: auto
+        &.recent-publish
+            display: flex
+            justify-content: space-around
+            flex: 70%
+            flex-flow: row wrap
+            > div.recent-post
+                align-self: flex-start
+                width: 45%
+                &:hover a
+                    color: $primary-color
+                img
+                    height: 160px
+                    width: 100%
+                h4.post-title
+                    font-size: 1.7em
+                div.content
+                    color: darken($white-color, 65%)
+                img, h4, h5
+                    margin-bottom: 5px
+                div.content
+                    margin-bottom: 60px
