@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block ttle %}{% endblock ttle %}</title>
+        <link rel="stylesheet" href="{% static 'css/master.css'%}">
+        <script src="{% static 'js/jquery-3.1.1.js'%}"></script>
+        <script src="{% static 'js/master.js'%}"></script>
+    </head>
+    <body>
+        <header>
+            <div class="barra">
+                <ul class="login">
+                    <li>{{current_date}}</li>
+                    <li><a href="">Registro</a></li>
+                    <li><a href="">Login</a></li>
+                </ul>
+                <ul class="redes">
+                    <li><a href="">fb</a></li>
+                    <li><a href="">google</a></li>
+                    <li><a href="">twi</a></li>
+                </ul>
+            </div>
+            <nav class="menu">
+                    <div href="#" class="title-web"><img src="{% static 'img/logo_cirt.png'%}"/></div>
+                    <a href="inicio" class="">Inicio</a>
+                    <a href="esta-pagina">Esta Pagina</a>
+                    <a href="#">Buscar</a>
+            </nav>
+            <nav class="hide-menu">
+                    <div href="#" class="title-web"><img src="{% static 'img/logo_cirt.png'%}"/></div>
+                    <a href="#" class="">Inicio</a>
+                    <a href="#">Esta Pagina</a>
+                    <a href="#">Participa</a>
+                    <a href="#">Buscar</a>
+            </nav>
+        </header>
+        <section>
+            {% block content %}
+            {% endblock %}
+            <aside>
+                <div class="recent-comment">
+                    <div class="aside-title"><h4>Comentarios Recientes</h4></div>
+
+                    <div class="comment">
+                        <div class="comment-title">Debian GNU/Linux, Linux Mint y otras yerbas… | Pensamientos</div>
+                        <div class="comment-content">increíblemente más grande y libre que el que proponen Windows, Google, Facebook o Apple. </div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <footer>
+            <img src="{% static 'img/logo_cirt.png'%}" alt="" />
+            <div class="github-tag">
+                Proyecto en github: <a href="https://github.com/Akhail/BlogWeb">https://github.com/Akhail/BlogWeb</a>
+            </div>
+        </footer>
+    </body>
+</html>
