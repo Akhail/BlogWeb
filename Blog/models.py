@@ -1,13 +1,13 @@
 from django.db import models
 from django.utils import timezone
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Post(models.Model):
     post_title = models.CharField('Titulo del post',max_length=100, blank=False)
     publish_date = models.DateTimeField('Fecha de publicación', blank=False)
     edit_date = models.DateTimeField('Fecha de edición', blank=False)
-    post_content = models.TextField('Contenido', blank=False)
+    post_content = RichTextField()
     def __str__(self):
         return self.post_title
     def published(self):
