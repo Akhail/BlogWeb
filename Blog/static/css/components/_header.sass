@@ -1,0 +1,77 @@
+/* Header Desktop Configuration */
+$menu-height: 65px
+$margin: 0 10%
+
+/* -------- 1. Normal style -------- */
+nav, div
+	&.menu, &.barra
+		display: flex
+		padding-left: 10%
+		padding-right: 10%
+		transition: all 600ms ease
+	&.hide-menu
+		@extend .menu
+		position: fixed
+		top: 0
+		z-index: 9999
+		transition: all 1s ease
+		display: none
+		width: 100%
+		background: rgba(18, 18, 18, 0.93) !important
+		.img
+			width: 30%
+	&.show
+		display: flex
+		height: $menu-height - 20 !important
+
+header > div.barra
+	justify-content: space-between
+	background: rgb(249, 249, 249)
+	padding-top: 4px
+	ul
+		display: flex
+		color: $dark-color
+		
+		&.login
+			flex-grow: 1
+			justify-content: space-between
+			a:hover
+				color: $primary-color
+		&.redes
+			flex-grow: 9
+			justify-content: flex-end
+			li
+				width: 40px
+			img
+				height: 20px
+				width: 40px
+
+header > nav.menu
+	justify-content: center
+	height: $menu-height
+	background: $dark-color
+	align-items: stretch
+	a
+		align-items: center
+		justify-content: center
+		display: flex
+		flex: 1
+		color: white
+		transition: all 400ms ease
+		&:hover
+			background: $primary-color
+	div.title-web
+		display: flex
+		align-items: flex-start
+		justify-content: flex-start
+		flex: 4
+
+.img
+	max-width: 50%
+	width: auto
+	height: 100%
+	max-height: 100%
+
+@media (max-width: 1024px)
+	.menu
+		background: red !important

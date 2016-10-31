@@ -1,0 +1,25 @@
+/* Header Desktop Configuration */
+$footer-height: 60px
+
+footer
+	margin-top: $footer-height * 3
+	width: 100%
+	display: flex
+	align-items: center
+	flex-direction: row
+	justify-content: space-around
+	background: $dark-color
+	height: $footer-height
+	.img
+		width: 200px
+	div
+		color: white
+		font-size: 1.2em
+	a
+		text-decoration: none
+		color: white
+		border-radius: 5px
+		padding: 2px
+		transition: all 400ms ease
+	a:hover
+		background: transparentize($primary-color, 0.6)

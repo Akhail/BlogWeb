@@ -47,25 +47,35 @@ table {
 
 /* Header Desktop Configuration */
 /* -------- 1. Normal style -------- */
-nav.menu, nav.hide-menu, div.barra {
+nav.menu, nav.hide-menu, nav.barra, div.menu, div.hide-menu, div.barra {
   display: flex;
   padding-left: 10%;
   padding-right: 10%;
   transition: all 600ms ease; }
 
-nav.hide-menu {
+nav.hide-menu, div.hide-menu {
   position: fixed;
-  top: -70px;
+    top: 0;
+    z-index: 9999;
+    transition: all 1s ease;
+    display: none;
   width: 100%;
   background: rgba(18, 18, 18, 0.93) !important; }
-nav.show {
-  top: 0; }
+
+nav.hide-menu .img, div.hide-menu .img {
+    width: 30%;
+}
+
+nav.show, div.show {
+    display: flex;
+    height: 45px !important;
+}
 
 header > div.barra {
-  padding-top: 5px;
-  padding-bottom: 5px;
   justify-content: space-between;
-  background: #f9f9f9; }
+    background: #f9f9f9;
+    padding-top: 4px;
+}
   header > div.barra ul {
     display: flex;
     color: #0b0b0b; }
@@ -78,9 +88,14 @@ header > div.barra {
       flex-grow: 9;
       justify-content: flex-end; }
 
-img {
-  width: 228.10241px;
-  height: 65px; }
+header > div.barra ul.redes li {
+    width: 40px;
+}
+
+header > div.barra ul.redes img {
+    height: 20px;
+    width: 40px;
+}
 
 header > nav.menu, header > nav.hide-menu {
   justify-content: center;
@@ -102,6 +117,18 @@ header > nav.menu, header > nav.hide-menu {
     justify-content: flex-start;
     flex: 4; }
 
+.img {
+    max-width: 50%;
+    width: auto;
+    height: 100%;
+    max-height: 100%;
+}
+
+@media (max-width: 1024px) {
+    .menu, nav.hide-menu, div.hide-menu {
+        background: red !important;
+    }
+}
 /* Section Desktop Configuration */
 section {
   margin-top: 30px;
@@ -111,7 +138,7 @@ section {
   section article {
     width: 70%; }
     section article.detail-post {
-      border-left: 5px solid #1e73be;
+        margin-right: 40px;
       padding: 10px 0 40px 25px; }
       section article.detail-post > h3.title-post {
         font-size: 2em;
@@ -123,13 +150,36 @@ section {
         border-bottom: 3px solid #2d5b91; }
       section article.detail-post > div.content-detail-post {
         width: 95%; }
-        section article.detail-post > div.content-detail-post h4.subtitle-post {
+
+section article.detail-post > div.content-detail-post h4 {
           font-size: 1.4em;
-          margin-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+section article.detail-post > div.content-detail-post h5 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+section article.detail-post > div.content-detail-post em {
+    font-style: italic;
+}
+
+section article.detail-post > div.content-detail-post u {
+    text-decoration: underline;
+}
+
+section article.detail-post > div.content-detail-post s {
+    text-decoration: line-through;
+}
+
+section article.detail-post > div.content-detail-post strong {
           font-weight: bold; }
-        section article.detail-post > div.content-detail-post div.element-content p::first-letter {
+
+section article.detail-post > div.content-detail-post p::first-letter {
           margin-left: 25px; }
-        section article.detail-post > div.content-detail-post div.element-content img {
+
+section article.detail-post > div.content-detail-post img {
           margin: 20px auto;
           width: 100%;
           height: auto; }
@@ -140,7 +190,9 @@ section {
       flex-flow: row wrap; }
       section article.recent-publish > div.recent-post {
         align-self: flex-start;
-        width: 45%; }
+          width: 45%;
+          margin-bottom: 40px;
+      }
         section article.recent-publish > div.recent-post:hover a {
           color: #1e73be; }
         section article.recent-publish > div.recent-post img {
@@ -152,12 +204,132 @@ section {
           color: #343434; }
         section article.recent-publish > div.recent-post img, section article.recent-publish > div.recent-post h4, section article.recent-publish > div.recent-post h5 {
           margin-bottom: 5px; }
-        section article.recent-publish > div.recent-post div.content {
-          margin-bottom: 60px; }
+
+section article.recent-publish > div.recent-post div.tags {
+    margin-top: 3px;
+}
+
+section article.recent-publish > div.recent-post div.tags > span {
+    font-size: 10pt;
+    background: #2888dd;
+    border-radius: 4px 15px 15px 4px;
+    padding: 2px 6px;
+    color: white;
+    border-bottom: 1px solid #2d5b91;
+}
+
+section article.recent-publish > div.recent-post div.tags span + span {
+    margin-left: 5px;
+}
+
+div.comment-post {
+    width: 76.5%;
+    margin: auto;
+}
+
+div.comment-post div.comment-title {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #1e73be;
+    padding: 5px 0;
+    width: 50%;
+}
+
+div.comment-post div.comment-title h4 {
+    background-color: #1e73be;
+    display: inline;
+    color: white;
+    padding: 5px 25px;
+}
+
+div.comment-post div.comment-element {
+    width: 60%;
+    position: relative;
+    padding: 20px 0 20px 70px;
+}
+
+div.comment-post div.comment-element img {
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+div.comment-post div.comment-element h5.comment-author {
+    font-weight: bold;
+    display: inline;
+}
+
+div.comment-post div.comment-element h5.comment-author + span.comment-date {
+    font-size: 0.8em;
+    color: #777;
+    margin-left: 20px;
+}
+
+div.comment-post div.comment-element div.comment-content {
+    margin-top: 10px;
+}
+
+div.comment-post div.comment-element + div.comment-element {
+    border-top: 1px dashed #ccc;
+}
+
+div.form-comment {
+    margin-top: 20px;
+    width: 70%;
+}
+
+div.form-comment h4.form-title {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+div.form-comment form.form-content .form-element {
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 30px;
+    align-items: stretch;
+}
+
+div.form-comment form.form-content .form-element span {
+    position: absolute;
+    top: 0;
+    padding: 8px;
+    background: #e45556;
+    color: white;
+    right: 0;
+}
+
+div.form-comment form.form-content .form-element *:not(span) {
+    padding: 8px;
+    border: 1px solid #c4c4c4;
+    max-width: 100%;
+}
+
+div.form-comment form.form-content .form-element *:not(span):focus {
+    outline: 0;
+    border: 1px solid #1e73be;
+}
+
+div.form-comment form.form-content button.submit {
+    padding: 7px 40px;
+    margin-top: 30px;
+    background: #252525;
+    border: none;
+    color: #dadada;
+    cursor: pointer;
+    transition: all 400ms ease;
+    align-self: flex-start;
+}
+
+div.form-comment form.form-content button.submit:hover {
+    background: #1e73be;
+    border-radius: 25px;
+}
 
 /* Aside Desktop Configuration */
 aside {
-  max-width: 25%; }
+    width: 25%;
+}
   aside div.aside-title {
     border-bottom: 2px solid #1e73be;
     padding: 5px 0; }
@@ -168,24 +340,30 @@ aside {
       padding: 5px 15px; }
   aside div.comment {
     margin-top: 5px; }
-    aside div.comment .comment-title {
+
+aside div.comment .comment-author {
       font-weight: bold;
       font-size: 1.2em; }
 
+aside div.comment .comment-content {
+    padding-left: 4px;
+}
+
 /* Header Desktop Configuration */
 footer {
-  margin-top: 160px;
+    margin-top: 180px;
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
   background: #0b0b0b;
-  height: 80px; }
-  footer img {
-    height: auto;
-    width: 160px; }
+    height: 60px;
+}
+
+footer .img {
+    width: 200px;
+}
   footer div {
     color: white;
     font-size: 1.2em; }
@@ -195,7 +373,9 @@ footer {
     border-radius: 5px;
     padding: 2px;
     transition: all 400ms ease; }
-    footer a:hover {
-      background: rgba(30, 115, 190, 0.4); }
+
+footer a:hover {
+    background: rgba(30, 115, 190, 0.4);
+}
 
 /*# sourceMappingURL=master.css.map */
