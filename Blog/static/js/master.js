@@ -1,7 +1,5 @@
-var num = 40; //number of pixels before modifying styles
-
 $(window).bind('scroll', function () {
-    if ($(window).scrollTop() > num) {
+    if ($(window).scrollTop() > 27) {
         $('.hide-menu').addClass('show');
     } else {
         $('.hide-menu').removeClass('show');
