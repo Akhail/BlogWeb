@@ -1,0 +1,62 @@
+{% extends "Blog/base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ article.post_title }}{% endblock title %}
+
+{% block content %}
+    <article class="detail-post">
+        <h3 class="title-post">{% block article-title %}{{ article.post_title }}{% endblock article-title %}</h3>
+        <div class="content-detail-post">
+            {% block article-content %}
+                {{ article.post_content|safe }}
+            {% endblock article-content %}
+        </div>
+    </article>
+
+{% endblock content %}
+
+{% block outside %}
+    <div class="comment-post">
+        <div class="comment-title">
+            <h4>
+                {% if comments_post|length == 0 %}
+                    Sin comentarios
+                {% elif comments_post|length > 1 %}
+                    {{ comments_post|length }} Comentarios
+                {% else %}
+                    {{ comments_post|length }} Comentario
+                {% endif %}
+            </h4>
+        </div>
+        {% if comments_post|length == 0 %}
+            <div class="not-comment">No hay comentarios, ¡Sé el primero!</div>
+        {% endif %}
+        {% for comment in comments_post %}
+            <div class="comment-element">
+                <img src="{% static 'img/41dc3e007986c35dc46763689fa93174.png' %}" alt="">
+                <h5 class="comment-author">{{ comment.comment_author }}</h5>
+                <span class="comment-date">{{ comment.publish_date }}</span>
+                <div class="comment-content">
+                    {{ comment.comment_content }}
+                </div>
+            </div>
+        {% endfor %}
+        <div class="form-comment">
+            <h4 class="form-title">Dejar una respuesta</h4>
+            <form class="form-content" action="#" method="post"> {% csrf_token %}
+
+                {% for field in form %}
+                    <div class="form-element">
+                        {{ field }}
+                        {% if field.errors.0 != None %}
+
+                            <span>{{ field.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="submit">Comentar</button>
+            </form>
+        </div>
+
+    </div>
+{% endblock outside %}

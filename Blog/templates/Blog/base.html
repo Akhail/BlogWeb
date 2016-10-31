@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{% block ttle %}{% endblock ttle %}</title>
+        <title>{% block title %}{% endblock title %}</title>
         <link rel="stylesheet" href="{% static 'css/master.css'%}">
         <script src="{% static 'js/jquery-3.1.1.js'%}"></script>
         <script src="{% static 'js/master.js'%}"></script>
@@ -12,27 +12,25 @@
         <header>
             <div class="barra">
                 <ul class="login">
-                    <li>{{current_date}}</li>
-                    <li><a href="">Registro</a></li>
-                    <li><a href="">Login</a></li>
+                    <li>{% now "d M Y h:m a" %}</li>
+                    <li><a href="http://127.0.0.1:8000/admin">Administrar</a></li>
                 </ul>
                 <ul class="redes">
-                    <li><a href="">fb</a></li>
-                    <li><a href="">google</a></li>
-                    <li><a href="">twi</a></li>
+                    <li><a href=""><img src="{% static 'ico/facebook.svg' %}" alt=""/></a></li>
+                    <li><a href=""><img src="{% static 'ico/google-plus.svg' %}" alt=""/></a></li>
+                    <li><a href=""><img src="{% static 'ico/twitter.svg' %}" alt=""/></a></li>
                 </ul>
             </div>
             <nav class="menu">
-                    <div href="#" class="title-web"><img src="{% static 'img/logo_cirt.png'%}"/></div>
-                    <a href="inicio" class="">Inicio</a>
-                    <a href="esta-pagina">Esta Pagina</a>
+                <div href="#" class="title-web"><img class="img" src="{% static 'img/logo_cirt.png' %}"/></div>
+                <a href="{{ '/inicio' }}">Inicio</a>
+                <a href="{{ '/esta-pagina' }}">Esta Pagina</a>
                     <a href="#">Buscar</a>
             </nav>
             <nav class="hide-menu">
-                    <div href="#" class="title-web"><img src="{% static 'img/logo_cirt.png'%}"/></div>
-                    <a href="#" class="">Inicio</a>
-                    <a href="#">Esta Pagina</a>
-                    <a href="#">Participa</a>
+                <div href="#" class="title-web"><img class="img" src="{% static 'img/logo_cirt.png' %}"/></div>
+                <a href="{{ '/inicio' }}">Inicio</a>
+                <a href="{{ '/esta-pagina' }}">Esta Pagina</a>
                     <a href="#">Buscar</a>
             </nav>
         </header>
@@ -42,17 +40,20 @@
             <aside>
                 <div class="recent-comment">
                     <div class="aside-title"><h4>Comentarios Recientes</h4></div>
+                    {% for comment in comments %}
+                        <div class="comment">
+                            <div class="comment-author">{{ comment.comment_author }}</div>
+                            <div class="comment-content">{{ comment.comment_content }}</div>
+                        </div>
+                    {% endfor %}
 
-                    <div class="comment">
-                        <div class="comment-title">Debian GNU/Linux, Linux Mint y otras yerbas… | Pensamientos</div>
-                        <div class="comment-content">increíblemente más grande y libre que el que proponen Windows, Google, Facebook o Apple. </div>
-                    </div>
+
                 </div>
             </aside>
         </section>
-
+        {% block outside %}{% endblock outside %}
         <footer>
-            <img src="{% static 'img/logo_cirt.png'%}" alt="" />
+            <img class="img" src="{% static 'img/logo_cirt.png' %}" alt=""/>
             <div class="github-tag">
                 Proyecto en github: <a href="https://github.com/Akhail/BlogWeb">https://github.com/Akhail/BlogWeb</a>
             </div>

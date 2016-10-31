@@ -1,0 +1,22 @@
+{% extends "Blog/base.html" %}
+{% block ttle %}Inicio{% endblock ttle %}
+{% block content %}
+    <article class="recent-publish">
+        {% for post in recent_post %}
+            <div class="recent-post">
+                <a href="/entrada/{{ post.post_title.split|join:'-'|lower }}"><img src="{{ post.post_img }}" alt=""></a>
+                <h4 class="post-title"><a
+                        href="/entrada/{{ post.post_title.split|join:'-'|lower }}">{{ post.post_title }}</a></h4>
+                <div class="content">
+                    {{ post.post_description }}
+                </div>
+                <div class="tags">
+                    {% for tag in post.post_tags.all %}
+                        <span>{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </article>
+
+{% endblock content %}
