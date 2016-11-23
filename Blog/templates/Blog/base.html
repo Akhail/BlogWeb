@@ -5,8 +5,7 @@
         <meta charset="utf-8">
         <title>{% block title %}{% endblock title %}</title>
         <link rel="stylesheet" href="{% static 'css/master.css'%}">
-        <script src="{% static 'js/jquery-3.1.1.js'%}"></script>
-        <script src="{% static 'js/master.js'%}"></script>
+
     </head>
     <body>
         <header>
@@ -25,13 +24,18 @@
                 <div href="#" class="title-web"><img class="img" src="{% static 'img/logo_cirt.png' %}"/></div>
                 <a href="{{ '/inicio' }}">Inicio</a>
                 <a href="{{ '/esta-pagina' }}">Esta Pagina</a>
-                    <a href="#">Buscar</a>
+                {#                <form class="search" action="busqueda">#}
+                {#                    <a href="#" id="search">Buscar</a>#}
+                {#                    <input id="search-text" type="text" name="s" placeholder="¿Qué desea buscar?">#}
+                {#                </form>#}
+
             </nav>
+
             <nav class="hide-menu">
                 <div href="#" class="title-web"><img class="img" src="{% static 'img/logo_cirt.png' %}"/></div>
                 <a href="{{ '/inicio' }}">Inicio</a>
                 <a href="{{ '/esta-pagina' }}">Esta Pagina</a>
-                    <a href="#">Buscar</a>
+                {#              <a href="#">Buscar</a>#}
             </nav>
         </header>
         <section>
@@ -58,5 +62,7 @@
                 Proyecto en github: <a href="https://github.com/Akhail/BlogWeb">https://github.com/Akhail/BlogWeb</a>
             </div>
         </footer>
+        <script src="{% static 'js/jquery-3.1.1.js' %}"></script>
+        <script src="{% static 'js/master.js' %}"></script>
     </body>
 </html>

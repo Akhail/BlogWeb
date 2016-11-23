@@ -5,3 +5,14 @@ $(window).bind('scroll', function () {
         $('.hide-menu').removeClass('show');
     }
 });
+
+// $('#search').on('click', function () {
+//     $('#search-text').toggleClass('visible-input');
+// });
+//
+// $('#search-text').keydown(function (event) {
+//     if (event.keyCode == 13) {
+//         this.form.submit();
+//         return false;
+//     }
+// });
