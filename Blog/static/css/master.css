@@ -336,6 +336,14 @@ aside div.comment .comment-author {
     font-size: 1.2em;
 }
 
+aside div.comment .comment-author a {
+    transition: all 400ms ease;
+}
+
+aside div.comment .comment-author a:hover {
+    color: #2d5b91;
+}
+
 aside div.comment .comment-content {
     padding-left: 15px;
 }
