@@ -11,59 +11,48 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  margin: 0;
-  padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   color: #0b0b0b;
   text-decoration: none; }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block; }
-
 body {
-  line-height: 1; }
-
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after, q:before, q:after {
-  content: "";
-  content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-* {
-  box-sizing: border-box; }
+    line-height: 1;
+    background: url("../img/fondo.jpg");
+}
 
 /* Header Desktop Configuration */
 /* -------- 1. Normal style -------- */
+nav, div {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul, nav ol, div ul, div ol {
+    list-style: none;
+}
+
 nav.menu, nav.hide-menu, nav.barra, div.menu, div.hide-menu, div.barra {
-  display: flex;
-  padding-left: 10%;
-  padding-right: 10%;
-  transition: all 600ms ease; }
+    display: flex;
+    padding-left: 10%;
+    padding-right: 10%;
+    transition: all 600ms ease;
+}
+
 nav.hide-menu, div.hide-menu {
-  position: fixed;
+    position: fixed;
     top: 0;
     z-index: 9999;
     transition: all 1s ease;
     display: none;
-  width: 100%;
-  background: rgba(18, 18, 18, 0.93) !important; }
+    width: 80%;
+    background: rgba(18, 18, 18, 0.93) !important;
+}
 
 nav.hide-menu .img, div.hide-menu .img {
-    width: 30%;
+    height: 100%;
+    width: 210px;
 }
+
 nav.show, div.show {
     display: flex;
     height: 45px !important;
@@ -76,7 +65,9 @@ header > div.barra {
 }
   header > div.barra ul {
     display: flex;
-    color: #0b0b0b; }
+      color: #0b0b0b;
+      margin: 0;
+  }
     header > div.barra ul.login {
       flex-grow: 1;
       justify-content: space-between; }
@@ -116,25 +107,31 @@ header > nav.menu, header > nav.hide-menu {
     flex: 4; }
 
 .img {
-    max-width: 50%;
-    width: auto;
     height: 100%;
-    max-height: 100%;
+    width: 210px;
 }
 
-@media (max-width: 1024px) {
-    .menu, nav.hide-menu, div.hide-menu {
-        background: red !important;
-    }
-}
 /* Section Desktop Configuration */
+body {
+    padding: 0;
+    margin: 0;
+}
+
 section {
   margin-top: 30px;
   display: flex;
   padding-left: 10%;
   padding-right: 10%; }
   section article {
-    width: 70%; }
+      width: 70%;
+      box-shadow: -2px -2px 2px #333;
+      background: white;
+  }
+
+section article div.error-search {
+    color: #ff4c4d;
+    font-size: 2.7em;
+}
     section article.detail-post {
         margin-right: 40px;
       padding: 10px 0 40px 25px; }
@@ -149,46 +146,31 @@ section {
       section article.detail-post > div.content-detail-post {
         width: 95%; }
 
-section article.detail-post > div.content-detail-post h4 {
-          font-size: 1.4em;
-    margin-bottom: 20px;
+section article.detail-post > div.content-detail-post img {
+    max-width: 100%;
 }
 
-section article.detail-post > div.content-detail-post h5 {
-    font-size: 1.2em;
-    margin-bottom: 15px;
+section article.detail-post > div.content-detail-post ul, section article.detail-post > div.content-detail-post ol {
+    list-style: inherit;
 }
 
-section article.detail-post > div.content-detail-post em {
-    font-style: italic;
-}
-
-section article.detail-post > div.content-detail-post u {
+section article.detail-post > div.content-detail-post a {
+    color: #1e73be;
     text-decoration: underline;
 }
-
-section article.detail-post > div.content-detail-post s {
-    text-decoration: line-through;
-}
-
-section article.detail-post > div.content-detail-post strong {
-          font-weight: bold; }
-
-section article.detail-post > div.content-detail-post p::first-letter {
-          margin-left: 25px; }
-
-section article.detail-post > div.content-detail-post img {
-          margin: 20px auto;
-          width: 100%;
-          height: auto; }
     section article.recent-publish {
       display: flex;
+        padding: 30px 0 50px 0;
+        margin-right: 40px;
       justify-content: space-around;
       flex: 70%;
       flex-flow: row wrap; }
       section article.recent-publish > div.recent-post {
         align-self: flex-start;
           width: 45%;
+          height: 380px;
+          background: #F8F8F8;
+          border: 1px solid #F0F0F0;
           margin-bottom: 40px;
       }
         section article.recent-publish > div.recent-post:hover a {
@@ -221,8 +203,12 @@ section article.recent-publish > div.recent-post div.tags span + span {
 }
 
 div.comment-post {
-    width: 76.5%;
-    margin: auto;
+    padding: 25px;
+    width: 52%;
+    box-shadow: -2px -2px 2px #333;
+    margin-top: 40px;
+    margin-left: 10%;
+    background: white;
 }
 
 div.comment-post div.comment-title {
@@ -328,6 +314,12 @@ div.form-comment form.form-content button.submit:hover {
 aside {
     width: 25%;
 }
+
+aside div.recent-comment-content {
+    background: white;
+    box-shadow: 0 0 4px #333;
+    padding: 7px 10px;
+}
   aside div.aside-title {
     border-bottom: 2px solid #1e73be;
     padding: 5px 0; }
@@ -335,21 +327,26 @@ aside {
       background: #1e73be;
       display: inline;
       color: white;
-      padding: 5px 15px; }
-  aside div.comment {
-    margin-top: 5px; }
+        padding: 5px 15px;
+        box-shadow: 0 0 2px #333;
+    }
 
 aside div.comment .comment-author {
-      font-weight: bold;
-      font-size: 1.2em; }
+    font-weight: bold;
+    font-size: 1.2em;
+}
 
 aside div.comment .comment-content {
-    padding-left: 4px;
+    padding-left: 15px;
+}
+
+aside div.comment + div.comment {
+    margin-top: 15px;
 }
 
 /* Header Desktop Configuration */
 footer {
-    margin-top: 180px;
+    margin-top: 210px;
   width: 100%;
   display: flex;
   align-items: center;

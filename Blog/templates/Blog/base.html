@@ -21,7 +21,7 @@
                 </ul>
             </div>
             <nav class="menu">
-                <div href="#" class="title-web"><img class="img" src="{% static 'img/logo_cirt.png' %}"/></div>
+                <div class="title-web"><img class="img" src="{% static 'img/logo_cirt.png' %}"/></div>
                 <a href="{{ '/inicio' }}">Inicio</a>
                 <a href="{{ '/esta-pagina' }}">Esta Pagina</a>
                 {#                <form class="search" action="busqueda">#}
@@ -32,7 +32,7 @@
             </nav>
 
             <nav class="hide-menu">
-                <div href="#" class="title-web"><img class="img" src="{% static 'img/logo_cirt.png' %}"/></div>
+                <div class="title-web"><img class="img" src="{% static 'img/logo_cirt.png' %}"/></div>
                 <a href="{{ '/inicio' }}">Inicio</a>
                 <a href="{{ '/esta-pagina' }}">Esta Pagina</a>
                 {#              <a href="#">Buscar</a>#}
@@ -44,14 +44,14 @@
             <aside>
                 <div class="recent-comment">
                     <div class="aside-title"><h4>Comentarios Recientes</h4></div>
-                    {% for comment in comments %}
-                        <div class="comment">
-                            <div class="comment-author">{{ comment.comment_author }}</div>
-                            <div class="comment-content">{{ comment.comment_content }}</div>
-                        </div>
-                    {% endfor %}
-
-
+                    <div class="recent-comment-content">
+                        {% for comment in comments %}
+                            <div class="comment">
+                                <div class="comment-author">{{ comment.comment_author }}</div>
+                                <div class="comment-content">{{ comment.comment_content }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </aside>
         </section>

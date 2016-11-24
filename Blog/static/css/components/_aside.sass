@@ -1,20 +1,29 @@
 /* Aside Desktop Configuration */
 
 aside
-	width: 25%
-	div.aside-title
-		border-bottom: 2px solid $primary-color
-		padding: 5px 0
-		> h4
-			background: $primary-color
-			display: inline
-			color: white
-			padding: 5px 15px
-	div.comment
-		margin-top: 5px
-		.comment-author
-			font-weight: bold
-			font-size: 1.2em
-		.comment-content
-			//border-left: 4px solid $primary-color
-			padding-left: 4px
+    width: 25%
+    div.recent-comment-content
+        background: white
+        box-shadow: 0 0 4px #333
+        padding: 7px 10px
+    div.aside-title
+        border-bottom: 2px solid $primary-color
+        padding: 5px 0
+        > h4
+            background: $primary-color
+            display: inline
+            color: white
+            padding: 5px 15px
+            
+            box-shadow: 0 0 2px #333
+    div.comment
+        
+        .comment-author
+            font-weight: bold
+            font-size: 1.2em
+        .comment-content
+            //border-left: 4px solid $primary-color
+            padding-left: 15px
+    div.comment + div.comment
+        margin-top: 15px
+        
