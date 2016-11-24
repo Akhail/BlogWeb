@@ -11,6 +11,12 @@
                 {{ article.post_content|safe }}
             {% endblock article-content %}
         </div>
+        <div class="date">
+            Creado: {{ article.publish_date }}.
+            {% if article.publish_date|date:"U" != article.edit_date|date:"U" %}
+                Editado: {{ article.edit_date }}.
+            {% endif %}
+        </div>
     </article>
 
 {% endblock content %}
@@ -28,9 +34,6 @@
                 {% endif %}
             </h4>
         </div>
-        {% if comments_post|length == 0 %}
-            <div class="not-comment">No hay comentarios, ¡Sé el primero!</div>
-        {% endif %}
         {% for comment in comments_post %}
             <div class="comment-element">
                 <img src="{% static 'img/41dc3e007986c35dc46763689fa93174.png' %}" alt="">
@@ -40,6 +43,8 @@
                     {{ comment.comment_content }}
                 </div>
             </div>
+        {% empty %}
+            <div class="not-comment">No hay comentarios, ¡Sé el primero!</div>
         {% endfor %}
         <div class="form-comment">
             <h4 class="form-title">Dejar una respuesta</h4>

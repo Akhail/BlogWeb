@@ -126,7 +126,21 @@ section {
       width: 70%;
       box-shadow: -2px -2px 2px #333;
       background: white;
+      position: relative;
   }
+
+section article div.date {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 0;
+    border-top: 1px dashed #555;
+      background: white;
+    font-size: 0.82em;
+    color: #444;
+}
 
 section article div.error-search {
     color: #ff4c4d;
