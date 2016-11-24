@@ -47,7 +47,9 @@
                     <div class="recent-comment-content">
                         {% for comment in comments %}
                             <div class="comment">
-                                <div class="comment-author">{{ comment.comment_author }}</div>
+                                <div class="comment-author"><a
+                                        href="/entrada/{{ comment.post_id.post_title.split|join:'-'|lower }}">{{ comment.comment_author }}</a>
+                                </div>
                                 <div class="comment-content">{{ comment.comment_content }}</div>
                             </div>
                         {% endfor %}
