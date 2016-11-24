@@ -11,9 +11,10 @@ section
     padding-right: 10%
     article
         width: 70%
+        position: relative
+
         box-shadow: 0 0 5px #333
         background: white
-        position: relative
         div.date
             display: block
             position: absolute
@@ -64,8 +65,8 @@ section
                 align-self: flex-start
                 width: 45%
                 height: 380px
-                background: #F8F8F8
-                border: 1px solid #F0F0F0
+                //background: #F8F8F8
+                //border: 1px solid #F0F0F0
                 margin-bottom: 40px
                 &:hover a
                     color: $primary-color
@@ -73,6 +74,7 @@ section
                     height: 160px
                     width: 100%
                 h4.post-title
+                    margin-top: 0
                     font-size: 1.7em
                 div.content
                     color: darken($white-color, 65%)
@@ -93,22 +95,25 @@ section
 div.comment-post
     padding: 25px
     width: 52%
-    box-shadow: 0 0 5px #333
     margin-top: 40px
     margin-left: 10%
-    background: white
-    
+
+    div.wrapper
+        background: white
+        box-shadow: 0 0 5px #333
+        padding: 20px 10px 20px 20px
     div.comment-title
-        margin-bottom: 20px
+        //margin-bottom: 20px
         border-bottom: 2px solid $primary-color
         padding: 5px 0
-        width: 50%
+        width: 100%
         h4
             background-color: $primary-color
             display: inline
             color: white
             padding: 5px 25px
     div.comment-element
+
         width: 60%
         position: relative
         padding: 20px 0 20px 70px
