@@ -11,12 +11,14 @@
                 {{ article.post_content|safe }}
             {% endblock article-content %}
         </div>
+        {% block footer-article %}
         <div class="date">
             Creado: {{ article.publish_date }}.
             {% if article.publish_date|date:"U" != article.edit_date|date:"U" %}
                 Editado: {{ article.edit_date }}.
             {% endif %}
         </div>
+        {% endblock %}
     </article>
 
 {% endblock content %}
